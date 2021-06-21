@@ -19,11 +19,11 @@ export default {
     type: 'gltf'
   },
   models: [
-    {
-      path: './assets/models/duck.gltf',
-      scale: 20,
-      type: 'gltf'
-    },
+    // {
+    //   path: './assets/models/duck.gltf',
+    //   scale: 20,
+    //   type: 'gltf'
+    // },
     {
       path: './assets/models/Teapot.json',
       scale: 20,
