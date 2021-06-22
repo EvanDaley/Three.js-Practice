@@ -8,16 +8,18 @@ function createCamera() {
     100, // far clipping plane
   );
 
-  const metersPerSecond = 2
+  let metersPerSecond = 20
+  let directionMultiplier = 1
   let i = 0
 
   camera.tick = (delta) => {
-    i += metersPerSecond * delta
-    camera.position.z += metersPerSecond * delta
+    i += metersPerSecond * delta * directionMultiplier
+    camera.position.z += metersPerSecond * delta * directionMultiplier
 
     if (i > 10) {
-      i = 0
-      camera.position.z = 2
+      directionMultiplier = -1
+    } else if (i < -5) {
+      directionMultiplier = 1
     }
   }
 
