@@ -9,22 +9,16 @@ function createCamera() {
   );
 
   let metersPerSecond = 20
-  let directionMultiplier = 1
-  let i = 0
+  let i = 10
 
   camera.tick = (delta) => {
-    i += metersPerSecond * delta * directionMultiplier
-    camera.position.z += metersPerSecond * delta * directionMultiplier
-
-    if (i > 10) {
-      directionMultiplier = -1
-    } else if (i < -5) {
-      directionMultiplier = 1
-    }
+    i += metersPerSecond * delta
+    camera.position.z = (i % 25) + 10
   }
 
   // move the camera back so we can view the scene
   camera.position.set(0, 0, 10);
+  console.log(camera.position.z)
 
   return camera;
 }
