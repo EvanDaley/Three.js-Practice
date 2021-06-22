@@ -8,6 +8,19 @@ function createCamera() {
     100, // far clipping plane
   );
 
+  const metersPerSecond = 2
+  let i = 0
+
+  camera.tick = (delta) => {
+    i += metersPerSecond * delta
+    camera.position.z += metersPerSecond * delta
+
+    if (i > 10) {
+      i = 0
+      camera.position.z = 2
+    }
+  }
+
   // move the camera back so we can view the scene
   camera.position.set(0, 0, 10);
 

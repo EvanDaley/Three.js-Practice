@@ -7,7 +7,7 @@ import { createRenderer } from './systems/renderer.js';
 import { Resizer } from './systems/Resizer.js';
 import { Loop } from './systems/Loop.js'
 
-let scene;6
+let scene;
 let camera;
 let renderer;
 let loop;
@@ -23,7 +23,7 @@ class World {
     const cube = createCube()
     const light = createLights()
 
-    loop.updateables.push(cube)
+    loop.updateables.push(cube, camera, light)
 
     scene.add(cube, light)
 

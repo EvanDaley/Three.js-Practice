@@ -11,6 +11,7 @@ class Loop {
     }
 
     start() {
+        clock.start()
         this.renderer.setAnimationLoop(() => {
             // Tell every animation to tick forward one frame
             this.tick()
