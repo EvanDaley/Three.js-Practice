@@ -10,13 +10,27 @@ function createMaterial() {
   // create a "standard" material
   const textureLoader = new TextureLoader();
 
+  const textureBW = textureLoader.load(
+    '/assets/textures/uv-test-bw.png',
+  );
+
+
   const texture = textureLoader.load(
     '/assets/textures/uv-test-col.png',
   );
 
+  console.log(texture)
+
   const material = new MeshStandardMaterial({
-    map: texture
+    map: texture,
+    emissiveMap: textureBW,
+    // emissiveIntensity: 2
+    alphaMap: texture,
+    // normalMap: texture
+    displacementMap: texture
   });
+
+  material.displacementScale = .02
 
   return material;
 }
@@ -31,14 +45,14 @@ function createSphere() {
 
   sphere.rotation.set(-0.5, -0.1, 0.8);
 
-  const radiansPerSecond = MathUtils.degToRad(30);
+  const radiansPerSecond = MathUtils.degToRad(45);
 
   // this method will be called once per frame
   sphere.tick = (delta) => {
     // increase the cube's rotation each frame
     sphere.rotation.z += radiansPerSecond * delta;
     sphere.rotation.x += radiansPerSecond * delta;
-    sphere.rotation.y += radiansPerSecond * delta;
+    // sphere.rotation.y += radiansPerSecond * delta;
   };
 
   return sphere;
