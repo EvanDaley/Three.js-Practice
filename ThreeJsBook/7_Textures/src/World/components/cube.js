@@ -11,7 +11,8 @@ function createMaterial() {
   const textureLoader = new TextureLoader();
 
   const texture = textureLoader.load(
-    '/assets/textures/uv-test-col.png',
+    '/assets/textures/stepbrothers.png',
+    // '/assets/textures/uv-test-col.png',
   );
 
   const material = new MeshStandardMaterial({
@@ -36,9 +37,9 @@ function createCube() {
   // this method will be called once per frame
   cube.tick = (delta) => {
     // increase the cube's rotation each frame
-    cube.rotation.z += radiansPerSecond * delta;
-    cube.rotation.x += radiansPerSecond * delta;
-    cube.rotation.y += radiansPerSecond * delta;
+    // cube.rotation.z += radiansPerSecond * delta;
+    // cube.rotation.x += radiansPerSecond * delta;
+    // cube.rotation.y += radiansPerSecond * delta;
   };
 
   return cube;
