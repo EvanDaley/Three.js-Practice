@@ -6,7 +6,21 @@ function createRenderer() {
 
   renderer.physicallyCorrectLights = true;
 
-  const effect = new AsciiEffect( renderer, ' .:-+*=%@#', { invert: true } );
+  // const effect = new AsciiEffect( renderer, ' .,:;=|STEVEN`$', { invert: false, bColor: true, bResolution: .4 } );
+  // const effect = new AsciiEffect( renderer, ' .:-+*=%@#', { invert: false, bColor: true, bResolution: .4 } );
+  const effect = new AsciiEffect(
+    renderer,
+    ' .\'`^",:;Il!i~+_-?][}{1)(|/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$',
+    {
+      // bColor: 'white',
+      // invert: true, 
+      // bColor: 'black', 
+      // bBlock: true
+      // bResolution: .
+    }
+  );
+
+  // return renderer;
 
   return effect;
 }
