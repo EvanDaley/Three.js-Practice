@@ -18,23 +18,31 @@ class World {
     camera = createCamera();
     renderer = createRenderer();
     scene = createScene();
-    loop = new Loop(camera, scene, renderer);
+    loop = new Loop(
+      camera,
+      scene,
+      renderer
+    );
     container.append(renderer.domElement);
 
     const cube = createCube();
     const sphere = createSphere();
     const light = createLights();
 
-    loop.updatables.push(cube, sphere);
+    loop.updatables.push(cube, sphere, camera);
 
-    scene.add(cube, light, sphere);
+    scene.add(
+      cube,
+      light,
+      // sphere
+    );
 
     const resizer = new Resizer(container, camera, renderer);
 
   }
 
   animate() {
-    requestAnimationFrame( animate );
+    requestAnimationFrame(animate);
     render();
   }
 

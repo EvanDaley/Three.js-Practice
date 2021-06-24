@@ -20,7 +20,7 @@ function createRenderer() {
     }
   );
 
-  return renderer;
+  // return renderer;
 
   return effect;
 }

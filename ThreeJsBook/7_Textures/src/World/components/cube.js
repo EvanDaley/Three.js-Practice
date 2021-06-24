@@ -23,22 +23,22 @@ function createMaterial() {
 }
 
 function createCube() {
-  const geometry = new BoxBufferGeometry(2, 2, 2);
+  const geometry = new BoxBufferGeometry(8,8,8);
   // const material = new MeshStandardMaterial({ color: 'purple' });
 
   const material = createMaterial();
   const cube = new Mesh(geometry, material);
 
-  cube.rotation.set(-0.5, -0.1, 0.8);
-  cube.position.x = -2
+  // cube.rotation.set(-0.5, -0.1, 0.8);
+  // cube.position.x = -2
 
-  const radiansPerSecond = MathUtils.degToRad(30);
+  const radiansPerSecond = MathUtils.degToRad(3);
 
   // this method will be called once per frame
   cube.tick = (delta) => {
     // increase the cube's rotation each frame
     // cube.rotation.z += radiansPerSecond * delta;
-    // cube.rotation.x += radiansPerSecond * delta;
+    cube.rotation.x += radiansPerSecond * delta;
     // cube.rotation.y += radiansPerSecond * delta;
   };
 
