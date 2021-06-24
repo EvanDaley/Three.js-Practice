@@ -11,13 +11,19 @@ class Loop {
   }
 
   start() {
-    this.renderer.setAnimationLoop(() => {
+    this.animate()
+  }
+
+  animate() {
+    requestAnimationFrame( () => {this.animate()} );
+
+    // this.renderer.setAnimationLoop(() => {
       // tell every animated object to tick forward one frame
       this.tick();
 
       // render a frame
       this.renderer.render(this.scene, this.camera);
-    });
+    // });
   }
 
   stop() {

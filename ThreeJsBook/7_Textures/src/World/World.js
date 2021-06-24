@@ -30,11 +30,20 @@ class World {
     scene.add(cube, light, sphere);
 
     const resizer = new Resizer(container, camera, renderer);
+
+  }
+
+  animate() {
+    requestAnimationFrame( animate );
+    render();
   }
 
   render() {
     // draw a single frame
     renderer.render(scene, camera);
+
+    const timer = Date.now() - start;
+
   }
 
   start() {
