@@ -33,12 +33,14 @@ class World {
   }
 
   async init() {
-    const { parrot, flamingo, stork } = await loadBirds();
-    controls.target.copy(parrot.position);
+    const { parrot, flamingo, stork } = await loadBirds()
+    controls.target.copy(parrot.position)
 
     birds.push(parrot, flamingo, stork)
 
-    scene.add(parrot, flamingo, stork);
+    loop.updatables.push(parrot, flamingo, stork)
+
+    scene.add(parrot, flamingo, stork)
   }
 
   switchTarget() {
