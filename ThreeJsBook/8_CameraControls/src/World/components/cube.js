@@ -6,14 +6,12 @@ import {
   TextureLoader,
 } from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 
-function createMaterial() {
+function createMaterial(file) {
   // create a texture loader.
   const textureLoader = new TextureLoader();
 
   // load a texture
-  const texture = textureLoader.load(
-    '/assets/textures/uv-test-bw.png',
-  );
+  const texture = textureLoader.load(file);
 
   // create a "standard" material using
   // the texture we just loaded as a color map
@@ -26,8 +24,15 @@ function createMaterial() {
 
 function createCube() {
   const geometry = new BoxBufferGeometry(2, 2, 2);
-  const material = createMaterial();
-  const cube = new Mesh(geometry, material);
+
+  const m1 = createMaterial('/1.png');
+  const m2 = createMaterial('/2.png');
+  const m3 = createMaterial('/3.png');
+  const m4 = createMaterial('/4.png');
+  const m5 = createMaterial('/5.png');
+  const m6 = createMaterial('/6.png');
+
+  const cube = new Mesh(geometry, [m6,m3,m1,m4,m5,m2]);
 
   cube.rotation.set(-0.5, -0.1, 0.8);
 

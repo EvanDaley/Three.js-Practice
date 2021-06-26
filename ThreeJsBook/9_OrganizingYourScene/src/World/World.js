@@ -1,12 +1,12 @@
 import { createCamera } from './components/camera.js';
-import { createCube } from './components/cube.js';
 import { createLights } from './components/lights.js';
+import { createMeshGroup } from './components/meshGroup.js';
 import { createScene } from './components/scene.js';
 
+import { createControls } from './systems/controls.js';
 import { createRenderer } from './systems/renderer.js';
 import { Resizer } from './systems/Resizer.js';
 import { Loop } from './systems/Loop.js';
-import { createControls } from './systems/controls.js';
 
 let camera;
 let renderer;
@@ -22,22 +22,18 @@ class World {
     container.append(renderer.domElement);
 
     const controls = createControls(camera, renderer.domElement);
+    // const cube = createCube();
+    const meshGroup = createMeshGroup();
 
-    const cube = createCube();
     const { ambientLight, mainLight } = createLights();
 
-    controls.target.copy(cube.position);
-
-    loop.updatables.push(controls);
-    // loop.updatables.push(cube);
-
-    scene.add(ambientLight, mainLight, cube);
+    loop.updatables.push(controls, meshGroup);
+    scene.add(ambientLight, mainLight, meshGroup);
 
     const resizer = new Resizer(container, camera, renderer);
   }
 
   render() {
-    // draw a single frame
     renderer.render(scene, camera);
   }
 
