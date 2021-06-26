@@ -41,20 +41,21 @@ class World {
     scene.add(parrot, flamingo, stork);
   }
 
-  async switchTarget() {
-    const focusedIndex = birds.findIndex(arrayElement => {
-      // console.log(controls.target)
-      return arrayElement.position.x == controls.target.x
-    })
+  switchTarget() {
+    const focusedIndex = birds.findIndex(arrayElement => arrayElement.position.x == controls.target.x)
     const targetIndex = (focusedIndex + 1) % (birds.length)
     const targetObject = birds[targetIndex]
-
-    console.log(birds)
-    console.log(focusedIndex)
-    // console.log(targetIndex)
-    // console.log(targetObject)
-
     controls.target.copy(targetObject.position)
+  }
+
+  reset() {
+    controls.target.copy(birds[0].position)
+    camera.position.set(-1.5, 1.5, 6.5);
+  }
+
+  zoomOut() {
+    controls.target.copy(birds[0].position)
+    camera.position.set(-3.5, 1.5, 16.5);
   }
 
   render() {

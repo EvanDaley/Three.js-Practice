@@ -20,7 +20,7 @@ async function loadBirds() {
     const stork = setupModel(storkData);
 
     flamingo.position.set(7.5, 0, -10);
-    parrot.position.set(1, 0, 2.5);
+    parrot.position.set(.1, 0, 2.5);
     stork.position.set(0, -2.5, -10);
 
     return {

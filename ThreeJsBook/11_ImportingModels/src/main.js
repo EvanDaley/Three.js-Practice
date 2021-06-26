@@ -13,13 +13,21 @@ async function main() {
   world.start();
 
   const button = document.querySelector('#switch-focus');
+  const button1 = document.querySelector('#zoom-out');
+  const button2 = document.querySelector('#reset');
 
   button.addEventListener("click", () => {
     world.switchTarget()
   });
+
+  button1.addEventListener("click", () => {
+    world.zoomOut()
+  });
+
+  button2.addEventListener("click", () => {
+    world.reset()
+  });
 }
-
-
 
 main().catch(err => {
   console.log(err)

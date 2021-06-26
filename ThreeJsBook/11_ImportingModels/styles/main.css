@@ -12,10 +12,11 @@ body {
   color: #444;
 }
 
-button {
+.controls {
   position: absolute;
   z-index: 1;
   margin-top:10px;
+  width: 100%;
 }
 
 h1 {
